@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
+    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="TaskItem" representedClassName="TaskItem" syncable="YES" codeGenerationType="class">
+        <attribute name="completedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="dueDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="estimatedMinutes" optional="YES" attributeType="Integer 32" defaultValueString="30" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isCompleted" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="priority" optional="YES" attributeType="String" defaultValueString="Medium"/>
+        <attribute name="subject" optional="YES" attributeType="String" defaultValueString="General"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="StudySession" representedClassName="StudySession" syncable="YES" codeGenerationType="class">
+        <attribute name="durationMinutes" optional="YES" attributeType="Double" defaultValueString="25.0" usesScalarValueType="YES"/>
+        <attribute name="endTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="productivityRating" optional="YES" attributeType="Integer 16" defaultValueString="5" usesScalarValueType="YES"/>
+        <attribute name="sessionMode" optional="YES" attributeType="String" defaultValueString="Standard"/>
+        <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="subject" optional="YES" attributeType="String" defaultValueString="General"/>
+        <attribute name="wasCompleted" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="UserProfile" representedClassName="UserProfile" syncable="YES" codeGenerationType="class">
+        <attribute name="dailyGoalHours" optional="YES" attributeType="Double" defaultValueString="3.0" usesScalarValueType="YES"/>
+        <attribute name="defaultPomodoroMinutes" optional="YES" attributeType="Integer 32" defaultValueString="25" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="lastStudyDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="FocusFlow"/>
+        <attribute name="streakCount" optional="YES" attributeType="Integer 32" defaultValueString="3" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="TaskItem" positionX="100" positionY="-18" width="128" height="180"/>
+        <element name="StudySession" positionX="260" positionY="-18" width="128" height="165"/>
+        <element name="UserProfile" positionX="420" positionY="-18" width="128" height="135"/>
+    </elements>
+</model>

@@ -1,0 +1,27 @@
+# Xcode
+## User settings
+xcuserdata/
+*.xcworkspace/xcuserdata/
+*.xcuserdatad
+*.xcuserstate
+
+## Build generated
+build/
+DerivedData/
+*.moved-aside
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+## Swift Package Manager
+.build/
+Packages/
+
+## macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
