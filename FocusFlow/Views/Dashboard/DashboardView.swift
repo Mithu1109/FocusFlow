@@ -267,7 +267,7 @@ struct DashboardView: View {
             if filtered.isEmpty {
                 emptyTasksState
             } else {
-                LazyVStack(spacing: 10) {
+                LazyVStack(spacing: 12) {
                     ForEach(filtered) { task in
                         TaskRowView(
                             task: task,
@@ -281,24 +281,6 @@ struct DashboardView: View {
                                 onStartFocusSession?(task)
                             }
                         )
-                        .swipeActions(edge: .leading) {
-                            Button {
-                                viewModel.toggleTaskCompletion(task: task, context: viewContext)
-                            } label: {
-                                Label(
-                                    task.isCompleted ? "Unmark" : "Complete",
-                                    systemImage: task.isCompleted ? "arrow.uturn.backward" : "checkmark"
-                                )
-                            }
-                            .tint(task.isCompleted ? .orange : FocusFlowTheme.success)
-                        }
-                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                            Button(role: .destructive) {
-                                viewModel.deleteTask(task: task, context: viewContext)
-                            } label: {
-                                Label("Delete", systemImage: "trash")
-                            }
-                        }
                     }
                 }
             }

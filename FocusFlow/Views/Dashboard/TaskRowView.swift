@@ -13,6 +13,7 @@ struct TaskRowView: View {
     var onDelete: (() -> Void)? = nil
     var onSelectForFocus: (() -> Void)? = nil
     
+    @Environment(\.colorScheme) private var colorScheme
     @State private var dragOffset: CGFloat = 0
     @State private var isSwiping: Bool = false
     
@@ -59,7 +60,8 @@ struct TaskRowView: View {
                         }
                 )
         }
-        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+        .frame(maxWidth: .infinity, minHeight: 116)
+        .focusFlowCard(cornerRadius: 14)
     }
     
     // MARK: - Background Reveal Layer
@@ -146,6 +148,8 @@ struct TaskRowView: View {
                     .foregroundColor(task.isCompleted ? .secondary : .primary)
                     .strikethrough(task.isCompleted, color: .secondary)
                     .lineLimit(2)
+                    .multilineTextAlignment(.leading)
+                    .frame(maxWidth: .infinity, minHeight: 38, alignment: .topLeading)
                 
                 // Badges row: Subject + Priority
                 HStack(spacing: 6) {
@@ -182,8 +186,9 @@ struct TaskRowView: View {
                 // Due Date Badge
                 dueDateBadge
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
             
-            // Quick Focus Action (if pending)
+            // Quick Focus Action (if pending) or layout placeholder
             if !task.isCompleted, let onSelectForFocus = onSelectForFocus {
                 Button(action: onSelectForFocus) {
                     Image(systemName: "timer")
@@ -195,11 +200,16 @@ struct TaskRowView: View {
                 }
                 .buttonStyle(PlainButtonStyle())
                 .help("Focus on this task")
+            } else {
+                Color.clear
+                    .frame(width: 32, height: 32)
             }
         }
+        .contentShape(Rectangle())
         .padding(.horizontal, 16)
         .padding(.vertical, 12)
-        .focusFlowCard(cornerRadius: 14)
+        .frame(maxWidth: .infinity, minHeight: 116, alignment: .leading)
+        .background(FocusFlowTheme.card(for: colorScheme))
     }
     
     // MARK: - Due Date Badge
